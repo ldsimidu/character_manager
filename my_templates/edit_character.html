@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Character</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container my-4">
+
+        <h1 class="text-center mb-4">Edit Character: {{ character.name }}</h1>
+
+        <form method="POST">
+            <div class="mb-4">
+                <h2>General Information</h2>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="name">Nome</label>
+                            <input type="text" class="form-control" id="name" name="name" value="{{ character.name }}">
+                        </div>
+                    </div>
+                    
+
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="character_class">Class</label>
+                            <input type="text" class="form-control" id="character_class" name="character_class" value="{{ character.character_class }}">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="level">Level</label>
+                            <input type="number" class="form-control" id="level" name="level" value="{{ character.level }}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Attributes -->
+            <div class="mb-4">
+                <h2>Attributes</h2>
+                <div class="row">
+                    <div class="col-4 col-md-2">
+                        <div class="attribute-card">
+                            <div class="attribute-title">Strength</div>
+                            <div class="attribute-value">{{ character.strength }}</div>
+                            <input type="number" name="strength" class="form-control" value="{{ character.strength }}" placeholder="Strength">
+                            <input type="number" name="strength_modifier" class="form-control" value="{{ character.strength_modifier }}" placeholder="Modifier">
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="attribute-card">
+                            <div class="attribute-title">Dexterity</div>
+                            <div class="attribute-value">{{ character.dexterity }}</div>
+                            <input type="number" name="dexterity" class="form-control" value="{{ character.dexterity }}" placeholder="Dexterity">
+                            <input type="number" name="dexterity_modifier" class="form-control" value="{{ character.dexterity_modifier }}" placeholder="Modifier">
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="attribute-card">
+                            <div class="attribute-title">Constitution</div>
+                            <div class="attribute-value">{{ character.constitution }}</div>
+                            <input type="number" name="constitution" class="form-control" value="{{ character.constitution }}" placeholder="Constitution">
+                            <input type="number" name="constitution_modifier" class="form-control" value="{{ character.constitution_modifier }}" placeholder="Modifier">
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="attribute-card">
+                            <div class="attribute-title">Intelligence</div>
+                            <div class="attribute-value">{{ character.intelligence }}</div>
+                            <input type="number" name="intelligence" class="form-control" value="{{ character.intelligence }}" placeholder="Intelligence">
+                            <input type="number" name="intelligence_modifier" class="form-control" value="{{ character.intelligence_modifier }}" placeholder="Modifier">
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="attribute-card">
+                            <div class="attribute-title">Wisdom</div>
+                            <div class="attribute-value">{{ character.wisdom }}</div>
+                            <input type="number" name="wisdom" class="form-control" value="{{ character.wisdom }}" placeholder="Wisdom">
+                            <input type="number" name="wisdom_modifier" class="form-control" value="{{ character.wisdom_modifier }}" placeholder="Modifier">
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="attribute-card">
+                            <div class="attribute-title">Charisma</div>
+                            <div class="attribute-value">{{ character.charisma }}</div>
+                            <input type="number" name="charisma" class="form-control" value="{{ character.charisma }}" placeholder="Charisma">
+                            <input type="number" name="charisma_modifier" class="form-control" value="{{ character.charisma_modifier }}" placeholder="Modifier">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="acrobatics" class="form-label">Acrobatics</label>
+                        <input type="text" class="form-control" id="acrobatics" name="acrobatics" value="{{ character.acrobatics }}" required>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="animal_handling" class="form-label">Animal Handling</label>
+                        <input type="text" class="form-control" id="animal_handling" name="animal_handling" value="{{ character.animal_handling }}" required>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="arcana" class="form-label">Arcana</label>
+                        <input type="text" class="form-control" id="arcana" name="arcana" value="{{ character.arcana }}" required>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="athletics" class="form-label">Athletics</label>
+                        <input type="text" class="form-control" id="athletics" name="athletics" value="{{ character.athletics }}" required>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="deception" class="form-label">Deception</label>
+                        <input type="text" class="form-control" id="deception" name="deception" value="{{ character.deception }}" required>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="history" class="form-label">History</label>
+                        <input type="text" class="form-control" id="history" name="history" value="{{ character.history }}" required>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="insight" class="form-label">Insight</label>
+                        <input type="text" class="form-control" id="insight" name="insight" value="{{ character.insight }}" required>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="intimidation" class="form-label">Intimidation</label>
+                        <input type="text" class="form-control" id="intimidation" name="intimidation" value="{{ character.intimidation }}" required>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="investigation" class="form-label">Investigation</label>
+                        <input type="text" class="form-control" id="investigation" name="investigation" value="{{ character.investigation }}" required>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="medicine" class="form-label">Medicine</label>
+                        <input type="text" class="form-control" id="medicine" name="medicine" value="{{ character.medicine }}" required>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="nature" class="form-label">Nature</label>
+                        <input type="text" class="form-control" id="nature" name="nature" value="{{ character.nature }}" required>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="perception" class="form-label">Perception</label>
+                        <input type="text" class="form-control" id="perception" name="perception" value="{{ character.perception }}" required>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="performance" class="form-label">Performance</label>
+                        <input type="text" class="form-control" id="performance" name="performance" value="{{ character.performance }}" required>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="persuasion" class="form-label">Persuasion</label>
+                        <input type="text" class="form-control" id="persuasion" name="persuasion" value="{{ character.persuasion }}" required>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="religion" class="form-label">Religion</label>
+                        <input type="text" class="form-control" id="religion" name="religion" value="{{ character.religion }}" required>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="sleight_of_hand" class="form-label">Sleight of Hand</label>
+                        <input type="text" class="form-control" id="sleight_of_hand" name="sleight_of_hand" value="{{ character.sleight_of_hand }}" required>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="stealth" class="form-label">Stealth</label>
+                        <input type="text" class="form-control" id="stealth" name="stealth" value="{{ character.stealth }}" required>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="survival" class="form-label">Survival</label>
+                        <input type="text" class="form-control" id="survival" name="survival" value="{{ character.survival }}" required>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <h2>Notes</h2>
+                    <div class="form-group">
+                        <textarea class="form-control" name="notes" rows="5">{{ character.notes }}</textarea>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary w-100">Save Changes</button>
+                </div>
+            </div>
+            
+        </form>
+        
+        <a href="{{ url_for('character_details', character_id=character.id) }}" class="btn btn-dark w-100 mt-3">Back to Character Details</a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

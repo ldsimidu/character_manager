@@ -1,0 +1,92 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+#character-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.character-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 150px;
+    text-align: center;
+    background-color: #f9f9f9;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+form input, form button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+}
+#character-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Estilo para a div do personagem */
+.character-card {
+    background-color: #e0e0e0; /* Cor de fundo cinza */
+    padding: 20px;
+    width: 250px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Adicionando transições suaves */
+    cursor: pointer; /* Garantindo que o cursor seja de ponteiro */
+    text-align: center;
+    overflow: hidden; /* Desabilita overflow */
+}
+
+.character-card:hover {
+    transform: scale(1.05); /* Zoom ao passar o mouse */
+    background-color: #cfcfcf; /* Cor de fundo alterada ao passar o mouse */
+}
+
+.character-card a {
+    color: inherit; /* Mantém a cor do texto */
+    text-decoration: none; /* Remove o sublinhado */
+}
+
+/* Estilos internos para as informações do personagem */
+.character-card h3 {
+    font-size: 1.2em;
+    margin: 10px 0;
+    color: #333;
+}
+
+.character-card p {
+    font-size: 1em;
+    color: #666;
+}
+
+.character-card p:first-of-type {
+    font-weight: bold; /* Deixa a classe em negrito */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .character-card {
+        width: 100%; /* Faz com que as cards ocupem toda a largura em telas pequenas */
+    }
+}

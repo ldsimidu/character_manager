@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Details</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .attribute-card {
+            color: black;
+            border: 2px solid #333;
+            border-radius: 8px;
+            text-align: center;
+            padding: 10px;
+            margin: 5px;
+            background-color: #f8f9fa;
+        }
+
+        .attribute-title {
+            color: black;
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .attribute-value {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: black;
+        }
+
+        .green {
+            background-color: rgb(211, 253, 211) !important;
+            color: white;
+        }
+
+        .red {
+            background-color: rgb(255, 177, 177) !important;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container my-4">
+        <h1 class="text-center mb-4">Character Details: {{ character.name }}</h1>
+
+        <!-- General Information -->
+        <div class="mb-4">
+            <h2>General Information</h2>
+            <div class="row">
+                <div class="col-6">
+                    <div class="attribute-card">
+                        <div class="attribute-title">Class</div>
+                        <div class="attribute-value">{{ character.character_class }}</div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="attribute-card">
+                        <div class="attribute-title">Level</div>
+                        <div class="attribute-value">{{ character.level }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-5">
+            <!-- Attributes -->
+            <h2>Attributes</h2>
+            <div class="row">
+                <!-- Strength -->
+                <div class="col-4">
+                    <div class="attribute-card">
+                        <div class="attribute-title">Strength</div>
+                        <div class="attribute-value">{{ character.strength }}</div>
+                        <div class="attribute-modifier" style="font-size: 22px; color: black;">
+                            {{ character.strength_modifier }}
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Dexterity -->
+                <div class="col-4">
+                    <div class="attribute-card">
+                        <div class="attribute-title">Dexterity</div>
+                        <div class="attribute-value">{{ character.dexterity }}</div>
+                        <div class="attribute-modifier" style="font-size: 22px; color: black;">
+                            {{ character.dexterity_modifier }}
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Constitution -->
+                <div class="col-4">
+                    <div class="attribute-card">
+                        <div class="attribute-title">Constitution</div>
+                        <div class="attribute-value">{{ character.constitution }}</div>
+                        <div class="attribute-modifier" style="font-size: 22px; color: black;">
+                            {{ character.constitution_modifier }}
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Intelligence -->
+                <div class="col-4">
+                    <div class="attribute-card">
+                        <div class="attribute-title">Intelligence</div>
+                        <div class="attribute-value">{{ character.intelligence }}</div>
+                        <div class="attribute-modifier" style="font-size: 22px; color: black;">
+                            {{ character.intelligence_modifier }}
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Wisdom -->
+                <div class="col-4">
+                    <div class="attribute-card">
+                        <div class="attribute-title">Wisdom</div>
+                        <div class="attribute-value">{{ character.wisdom }}</div>
+                        <div class="attribute-modifier" style="font-size: 22px; color: black;">
+                            {{ character.wisdom_modifier }}
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Charisma -->
+                <div class="col-4">
+                    <div class="attribute-card">
+                        <div class="attribute-title">Charisma</div>
+                        <div class="attribute-value">{{ character.charisma }}</div>
+                        <div class="attribute-modifier" style="font-size: 22px; color: black;">
+                            {{ character.charisma_modifier }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Skills -->
+        <div class="mb-4">
+            <h2>Skills</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="attribute-card">
+                        <div class="attribute-title">Acrobatics</div>
+                        <div class="attribute-value" data-value="{{ character.acrobatics }}">{{ character.acrobatics }}</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="attribute-card">
+                        <div class="attribute-title">Animal Handling</div>
+                        <div class="attribute-value" data-value="{{ character.animal_handling }}">{{ character.animal_handling }}</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="attribute-card">
+                        <div class="attribute-title">Arcana</div>
+                        <div class="attribute-value" data-value="{{ character.arcana }}">{{ character.arcana }}</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="attribute-card">
+                        <div class="attribute-title">Athletics</div>
+                        <div class="attribute-value" data-value="{{ character.athletics }}">{{ character.athletics }}</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="attribute-card">
+                        <div class="attribute-title">Deception</div>
+                        <div class="attribute-value" data-value="{{ character.deception }}">{{ character.deception }}</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="attribute-card">
+                        <div class="attribute-title">History</div>
+                        <div class="attribute-value" data-value="{{ character.history }}">{{ character.history }}</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="attribute-card">
+                        <div class="attribute-title">Insight</div>
+                        <div class="attribute-value" data-value="{{ character.insight }}">{{ character.insight }}</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="attribute-card">
+                        <div class="attribute-title">Intimidation</div>
+                        <div class="attribute-value" data-value="{{ character.intimidation }}">{{ character.intimidation }}</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="attribute-card">
+                        <div class="attribute-title">Investigation</div>
+                        <div class="attribute-value" data-value="{{ character.investigation }}">{{ character.investigation }}</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="attribute-card">
+                        <div class="attribute-title">Medicine</div>
+                        <div class="attribute-value" data-value="{{ character.medicine }}">{{ character.medicine }}</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="attribute-card">
+                        <div class="attribute-title">Nature</div>
+                        <div class="attribute-value" data-value="{{ character.nature }}">{{ character.nature }}</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="attribute-card">
+                        <div class="attribute-title">Perception</div>
+                        <div class="attribute-value" data-value="{{ character.perception }}">{{ character.perception }}</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="attribute-card">
+                        <div class="attribute-title">Performance</div>
+                        <div class="attribute-value" data-value="{{ character.performance }}">{{ character.performance }}</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="attribute-card">
+                        <div class="attribute-title">Persuasion</div>
+                        <div class="attribute-value" data-value="{{ character.persuasion }}">{{ character.persuasion }}</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="attribute-card">
+                        <div class="attribute-title">Religion</div>
+                        <div class="attribute-value" data-value="{{ character.religion }}">{{ character.religion }}</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="attribute-card">
+                        <div class="attribute-title">Sleight of Hand</div>
+                        <div class="attribute-value" data-value="{{ character.sleight_of_hand }}">{{ character.sleight_of_hand }}</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="attribute-card">
+                        <div class="attribute-title">Stealth</div>
+                        <div class="attribute-value" data-value="{{ character.stealth }}">{{ character.stealth }}</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="attribute-card">
+                        <div class="attribute-title">Survival</div>
+                        <div class="attribute-value" data-value="{{ character.survival }}">{{ character.survival }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-4">
+            <h2>Notes</h2>
+            <div class="form-group">
+                <textarea class="form-control" rows="5" readonly>{{ character.notes }}</textarea>
+            </div>
+        </div>
+
+        <a href="{{ url_for('edit_character', character_id=character.id) }}" class="btn btn-warning w-100 mt-3">Edit Character</a>
+
+
+        <a href="/" class="btn btn-dark w-100">Back to Home</a>
+
+        <form action="/delete_character/{{ character.id }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this character?');">
+            <button type="submit" class="btn btn-danger w-100">Delete Character</button>
+        </form>
+
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/character.js"></script>
+</body>
+
+</html>

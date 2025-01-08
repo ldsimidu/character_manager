@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.2 on win32)" generated="2025-01-08T02:24:03.236027" rpa="false" schemaversion="5">
+<suite id="s1" name="Preencher Campos" source="D:\Download Principal\Gerenciador de Personagem D&amp;D\preencher_campos.robot">
+<test id="s1-t1" name="Preencher Todos Os Campos" line="12">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-01-08T02:24:03.466911" level="INFO" html="true">File '&lt;a href="file://D:\Download Principal\Gerenciador de Personagem D&amp;D\character_id.txt"&gt;D:\Download Principal\Gerenciador de Personagem D&amp;D\character_id.txt&lt;/a&gt;' exists.</msg>
+<arg>${CHARACTER_ID_FILE}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="PASS" start="2025-01-08T02:24:03.466911" elapsed="0.000000"/>
+</kw>
+<msg time="2025-01-08T02:24:03.466911" level="INFO">${FILE_EXISTS} = True</msg>
+<var>${FILE_EXISTS}</var>
+<arg>File Should Exist</arg>
+<arg>${CHARACTER_ID_FILE}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-01-08T02:24:03.465885" elapsed="0.001026"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${FILE_EXISTS}' == 'False'</arg>
+<arg>Create File</arg>
+<arg>${CHARACTER_ID_FILE}</arg>
+<arg>11</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-01-08T02:24:03.467886" elapsed="0.000000"/>
+</kw>
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-01-08T02:24:03.467886" level="INFO" html="true">Getting file '&lt;a href="file://D:\Download Principal\Gerenciador de Personagem D&amp;D\character_id.txt"&gt;D:\Download Principal\Gerenciador de Personagem D&amp;D\character_id.txt&lt;/a&gt;'.</msg>
+<msg time="2025-01-08T02:24:03.468916" level="INFO">${CHARACTER_ID} = 29</msg>
+<var>${CHARACTER_ID}</var>
+<arg>${CHARACTER_ID_FILE}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-01-08T02:24:03.467886" elapsed="0.001030"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${CHARACTER_ID}' == ''</arg>
+<arg>Set Variable</arg>
+<arg>${CHARACTER_ID}</arg>
+<arg>11</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-01-08T02:24:03.468916" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Convert To Number" owner="BuiltIn">
+<arg>${CHARACTER_ID}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" start="2025-01-08T02:24:03.469885" elapsed="0.000000"/>
+</kw>
+<arg>'${CHARACTER_ID}' != ''</arg>
+<arg>Convert To Number</arg>
+<arg>${CHARACTER_ID}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-01-08T02:24:03.469885" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-01-08T02:24:03.469885" level="INFO">${CHARACTER_ID} = 30</msg>
+<var>${CHARACTER_ID}</var>
+<arg>${CHARACTER_ID}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-01-08T02:24:03.469885" elapsed="0.000000"/>
+</kw>
+<kw name="Convert To String" owner="BuiltIn">
+<msg time="2025-01-08T02:24:03.470919" level="INFO">${CHARACTER_ID_STR} = 30</msg>
+<var>${CHARACTER_ID_STR}</var>
+<arg>${CHARACTER_ID}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="PASS" start="2025-01-08T02:24:03.470919" elapsed="0.000000"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-01-08T02:24:03.471911" level="INFO" html="true">Created file '&lt;a href="file://D:\Download Principal\Gerenciador de Personagem D&amp;D\character_id.txt"&gt;D:\Download Principal\Gerenciador de Personagem D&amp;D\character_id.txt&lt;/a&gt;'.</msg>
+<arg>${CHARACTER_ID_FILE}</arg>
+<arg>${CHARACTER_ID_STR}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-01-08T02:24:03.470919" elapsed="0.000992"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-01-08T02:24:03.472885" level="INFO">${CHARACTER_NAME} = GUERREIRO ALEATORIO 30</msg>
+<var>${CHARACTER_NAME}</var>
+<arg>GUERREIRO ALEATORIO ${CHARACTER_ID}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-01-08T02:24:03.472885" elapsed="0.000000"/>
+</kw>
+<kw name="Start Process" owner="Process">
+<msg time="2025-01-08T02:24:03.472885" level="INFO">Starting process:
+python app.py</msg>
+<arg>python</arg>
+<arg>app.py</arg>
+<doc>Starts a new process on background.</doc>
+<status status="PASS" start="2025-01-08T02:24:03.472885" elapsed="0.010021"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-08T02:24:08.484605" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-08T02:24:03.482906" elapsed="5.001699"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-01-08T02:24:08.485643" level="INFO">Opening browser 'Chrome' to base url 'http://127.0.0.1:5000'.</msg>
+<arg>${URL}</arg>
+<arg>Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-01-08T02:24:08.484605" elapsed="1.910749"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-01-08T02:24:10.396354" elapsed="0.080519"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-08T02:24:13.478169" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-08T02:24:10.477868" elapsed="3.000301"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-08T02:24:13.478765" level="INFO">Clicking element 'xpath=//a[@href='/create_character']/button[@class='btn btn-success btn-lg']'.</msg>
+<arg>xpath=//a[@href='/create_character']/button[@class='btn btn-success btn-lg']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-08T02:24:13.478765" elapsed="0.203571"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-08T02:24:16.683395" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-08T02:24:13.683337" elapsed="3.000058"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-08T02:24:16.683395" level="INFO">Typing text 'GUERREIRO ALEATORIO 30' into text field 'xpath=//input[@name="name"]'.</msg>
+<arg>xpath=//input[@name="name"]</arg>
+<arg>${CHARACTER_NAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-08T02:24:16.683395" elapsed="0.205090"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-08T02:24:16.889484" level="INFO">Typing text 'Guerreiro' into text field 'xpath=//input[@name="character_class"]'.</msg>
+<arg>xpath=//input[@name="character_class"]</arg>
+<arg>Guerreiro</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-08T02:24:16.889484" elapsed="0.125964"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-08T02:24:17.016441" level="INFO">Typing text '1' into text field 'xpath=//input[@name="level"]'.</msg>
+<arg>xpath=//input[@name="level"]</arg>
+<arg>1</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-08T02:24:17.015448" elapsed="0.087923"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-08T02:24:17.104372" level="INFO">Typing text '15' into text field 'xpath=//input[@name="strength"]'.</msg>
+<arg>xpath=//input[@name="strength"]</arg>
+<arg>15</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-08T02:24:17.104372" elapsed="0.093071"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-08T02:24:17.198435" level="INFO">Typing text '2' into text field 'xpath=//input[@name="strength_modifier"]'.</msg>
+<arg>xpath=//input[@name="strength_modifier"]</arg>
+<arg>2</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-08T02:24:17.197443" elapsed="0.087783"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-08T02:24:17.286225" level="INFO">Typing text '13' into text field 'xpath=//input[@name="dexterity"]'.</msg>
+<arg>xpath=//input[@name="dexterity"]</arg>
+<arg>13</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-08T02:24:17.286225" elapsed="0.098067"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-08T02:24:17.384292" level="INFO">Typing text '1' into text field 'xpath=//input[@name="dexterity_modifier"]'.</msg>
+<arg>xpath=//input[@name="dexterity_modifier"]</arg>
+<arg>1</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-08T02:24:17.384292" elapsed="0.088284"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-08T02:24:17.472576" level="INFO">Typing text '14' into text field 'xpath=//input[@name="constitution"]'.</msg>
+<arg>xpath=//input[@name="constitution"]</arg>
+<arg>14</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-08T02:24:17.472576" elapsed="0.096435"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-08T02:24:17.569011" level="INFO">Typing text '2' into text field 'xpath=//input[@name="constitution_modifier"]'.</msg>
+<arg>xpath=//input[@name="constitution_modifier"]</arg>
+<arg>2</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-08T02:24:17.569011" elapsed="0.087418"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-08T02:24:17.657436" level="INFO">Typing text '16' into text field 'xpath=//input[@name="intelligence"]'.</msg>
+<arg>xpath=//input[@name="intelligence"]</arg>
+<arg>16</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-08T02:24:17.656429" elapsed="0.094420"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-08T02:24:17.750849" level="INFO">Typing text '3' into text field 'xpath=//input[@name="intelligence_modifier"]'.</msg>
+<arg>xpath=//input[@name="intelligence_modifier"]</arg>
+<arg>3</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-08T02:24:17.750849" elapsed="0.090198"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-08T02:24:17.842056" level="INFO">Typing text '12' into text field 'xpath=//input[@name="wisdom"]'.</msg>
+<arg>xpath=//input[@name="wisdom"]</arg>
+<arg>12</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-08T02:24:17.841047" elapsed="0.126628"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-08T02:24:17.967675" level="INFO">Typing text '1' into text field 'xpath=//input[@name="wisdom_modifier"]'.</msg>
+<arg>xpath=//input[@name="wisdom_modifier"]</arg>
+<arg>1</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-08T02:24:17.967675" elapsed="0.088166"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-08T02:24:18.056841" level="INFO">Typing text '10' into text field 'xpath=//input[@name="charisma"]'.</msg>
+<arg>xpath=//input[@name="charisma"]</arg>
+<arg>10</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-08T02:24:18.056841" elapsed="0.091538"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-08T02:24:18.148379" level="INFO">Typing text '0' into text field 'xpath=//input[@name="charisma_modifier"]'.</msg>
+<arg>xpath=//input[@name="charisma_modifier"]</arg>
+<arg>0</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-08T02:24:18.148379" elapsed="0.084317"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-08T02:24:18.232696" level="INFO">Typing text '1' into text field 'xpath=//input[@name="acrobatics"]'.</msg>
+<arg>xpath=//input[@name="acrobatics"]</arg>
+<arg>1</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-08T02:24:18.232696" elapsed="0.090386"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-08T02:24:18.324081" level="INFO">Typing text '-1' into text field 'xpath=//input[@name="animal_handling"]'.</msg>
+<arg>xpath=//input[@name="animal_handling"]</arg>
+<arg>-1</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-08T02:24:18.324081" elapsed="0.092009"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-08T02:24:18.416090" level="INFO">Typing text '2' into text field 'xpath=//input[@name="arcana"]'.</msg>
+<arg>xpath=//input[@name="arcana"]</arg>
+<arg>2</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-08T02:24:18.416090" elapsed="0.083838"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-08T02:24:18.499928" level="INFO">Typing text '3' into text field 'xpath=//input[@name="athletics"]'.</msg>
+<arg>xpath=//input[@name="athletics"]</arg>
+<arg>3</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-08T02:24:18.499928" elapsed="0.088155"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-08T02:24:18.589077" level="INFO">Typing text '1' into text field 'xpath=//input[@name="deception"]'.</msg>
+<arg>xpath=//input[@name="deception"]</arg>
+<arg>1</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-08T02:24:18.589077" elapsed="0.085556"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-08T02:24:18.675634" level="INFO">Typing text '-1' into text field 'xpath=//input[@name="history"]'.</msg>
+<arg>xpath=//input[@name="history"]</arg>
+<arg>-1</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-08T02:24:18.674633" elapsed="0.096057"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-08T02:24:18.771697" level="INFO">Typing text '2' into text field 'xpath=//input[@name="insight"]'.</msg>
+<arg>xpath=//input[@name="insight"]</arg>
+<arg>2</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-08T02:24:18.771697" elapsed="0.087715"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-08T02:24:18.860415" level="INFO">Typing text '-1' into text field 'xpath=//input[@name="intimidation"]'.</msg>
+<arg>xpath=//input[@name="intimidation"]</arg>
+<arg>-1</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-08T02:24:18.860415" elapsed="0.093414"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-08T02:24:18.954828" level="INFO">Typing text '3' into text field 'xpath=//input[@name="investigation"]'.</msg>
+<arg>xpath=//input[@name="investigation"]</arg>
+<arg>3</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-08T02:24:18.954828" elapsed="0.088371"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-08T02:24:19.044210" level="INFO">Typing text '-1' into text field 'xpath=//input[@name="medicine"]'.</msg>
+<arg>xpath=//input[@name="medicine"]</arg>
+<arg>-1</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-08T02:24:19.044210" elapsed="0.092790"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-08T02:24:19.137000" level="INFO">Typing text '2' into text field 'xpath=//input[@name="nature"]'.</msg>
+<arg>xpath=//input[@name="nature"]</arg>
+<arg>2</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-08T02:24:19.137000" elapsed="0.091750"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-08T02:24:19.229744" level="INFO">Typing text '-1' into text field 'xpath=//input[@name="perception"]'.</msg>
+<arg>xpath=//input[@name="perception"]</arg>
+<arg>-1</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-08T02:24:19.228750" elapsed="0.088617"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-08T02:24:19.318368" level="INFO">Typing text '1' into text field 'xpath=//input[@name="performance"]'.</msg>
+<arg>xpath=//input[@name="performance"]</arg>
+<arg>1</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-08T02:24:19.318368" elapsed="0.088776"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-08T02:24:19.408145" level="INFO">Typing text '-1' into text field 'xpath=//input[@name="persuasion"]'.</msg>
+<arg>xpath=//input[@name="persuasion"]</arg>
+<arg>-1</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-08T02:24:19.408145" elapsed="0.094646"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-08T02:24:19.503798" level="INFO">Typing text '2' into text field 'xpath=//input[@name="religion"]'.</msg>
+<arg>xpath=//input[@name="religion"]</arg>
+<arg>2</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-08T02:24:19.502791" elapsed="0.087567"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-08T02:24:19.591364" level="INFO">Typing text '-1' into text field 'xpath=//input[@name="sleight_of_hand"]'.</msg>
+<arg>xpath=//input[@name="sleight_of_hand"]</arg>
+<arg>-1</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-08T02:24:19.590358" elapsed="0.092181"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-08T02:24:19.683537" level="INFO">Typing text '3' into text field 'xpath=//input[@name="stealth"]'.</msg>
+<arg>xpath=//input[@name="stealth"]</arg>
+<arg>3</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-08T02:24:19.683537" elapsed="0.082459"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-08T02:24:19.766997" level="INFO">Typing text '-1' into text field 'xpath=//input[@name="survival"]'.</msg>
+<arg>xpath=//input[@name="survival"]</arg>
+<arg>-1</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-08T02:24:19.766997" elapsed="0.094964"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-08T02:24:19.862962" level="INFO">Typing text 'Algumas observações sobre o personagem.' into text field 'xpath=//textarea[@name="notes"]'.</msg>
+<arg>xpath=//textarea[@name="notes"]</arg>
+<arg>Algumas observações sobre o personagem.</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-08T02:24:19.862962" elapsed="0.228669"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>100000000000s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="FAIL" start="2025-01-08T02:24:20.091631" elapsed="15.278508">Execution terminated by signal</status>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>xpath=//button[@type='submit' and @class='btn btn-primary btn-lg']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-01-08T02:24:35.371132" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-01-08T02:24:35.372146" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>xpath=//a[text()='Voltar para o Índice']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-01-08T02:24:35.372146" elapsed="0.000000"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<arg>xpath=//*[@id="character-list"]/div[${CHARACTER_ID}]/a</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-01-08T02:24:35.373167" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>1000000s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-01-08T02:24:35.373167" elapsed="0.000000"/>
+</kw>
+<kw name="Terminate Process" owner="Process">
+<arg>app.py</arg>
+<doc>Stops the process gracefully or forcefully.</doc>
+<status status="NOT RUN" start="2025-01-08T02:24:35.374156" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-01-08T02:24:03.465885" elapsed="31.909246">Execution terminated by signal</status>
+</test>
+<status status="FAIL" start="2025-01-08T02:24:03.238022" elapsed="32.138116"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Preencher Campos">Preencher Campos</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

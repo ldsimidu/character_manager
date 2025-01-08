@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Personagem</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='other_style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <!-- Link Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container py-5" style="max-width: 1600px; height: 100px;">
+        <h1 class="text-center mb-4">Criar Personagem</h1>
+        <form id="character-form" class="bg-white p-5 rounded shadow-sm" onsubmit="return false;">
+            <div class="row mb-3">
+                <div class="col-md-2">
+                    <input type="text" name="name" class="form-control form-control-lg" placeholder="Nome" required />
+                </div>
+                <div class="col-md-2">
+                    <input type="text" name="character_class" class="form-control form-control-lg" placeholder="Classe" required />
+                </div>
+                <div class="col-md-2">
+                    <input type="number" name="level" class="form-control form-control-lg" placeholder="Nível" required />
+                </div>
+                <div class="col-md-2">
+                    <input type="number" name="strength" class="form-control form-control-lg" placeholder="Força" required />
+                </div>
+                <div class="col-md-2">
+                    <input type="number" name="strength_modifier" class="form-control form-control-lg" placeholder="Modificador de Força" required />
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-2">
+                    <input type="number" name="dexterity" class="form-control form-control-lg" placeholder="Destreza" required />
+                </div>
+                <div class="col-md-2">
+                    <input type="number" name="dexterity_modifier" class="form-control form-control-lg" placeholder="Modificador de Destreza" required />
+                </div>
+                <div class="col-md-2">
+                    <input type="number" name="constitution" class="form-control form-control-lg" placeholder="Constituição" required />
+                </div>
+                <div class="col-md-2">
+                    <input type="number" name="constitution_modifier" class="form-control form-control-lg" placeholder="Modificador de Constituição" required />
+                </div>
+                <div class="col-md-2">
+                    <input type="number" name="intelligence" class="form-control form-control-lg" placeholder="Inteligência" required />
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-2">
+                    <input type="number" name="intelligence_modifier" class="form-control form-control-lg" placeholder="Modificador de Inteligência" required />
+                </div>
+                <div class="col-md-2">
+                    <input type="number" name="wisdom" class="form-control form-control-lg" placeholder="Sabedoria" required />
+                </div>
+                <div class="col-md-2">
+                    <input type="number" name="wisdom_modifier" class="form-control form-control-lg" placeholder="Modificador de Sabedoria" required />
+                </div>
+                <div class="col-md-2">
+                    <input type="number" name="charisma" class="form-control form-control-lg" placeholder="Carisma" required />
+                </div>
+                <div class="col-md-2">
+                    <input type="number" name="charisma_modifier" class="form-control form-control-lg" placeholder="Modificador de Carisma" required />
+                </div>
+            </div>
+
+            <h3 class="mb-3">Habilidades</h3>
+
+            <div class="row mb-3">
+                <div class="col-md-2">
+                    <input type="number" name="acrobatics" class="form-control form-control-lg" placeholder="Acrobacia" required />
+                </div>
+                <div class="col-md-2">
+                    <input type="number" name="animal_handling" class="form-control form-control-lg" placeholder="Controle de Animais" required />
+                </div>
+                <div class="col-md-2">
+                    <input type="number" name="arcana" class="form-control form-control-lg" placeholder="Arcana" required />
+                </div>
+                <div class="col-md-2">
+                    <input type="number" name="athletics" class="form-control form-control-lg" placeholder="Atletismo" required />
+                </div>
+                <div class="col-md-2">
+                    <input type="number" name="deception" class="form-control form-control-lg" placeholder="Enganação" required />
+                </div>
+                <div class="col-md-2">
+                    <input type="number" name="history" class="form-control form-control-lg" placeholder="História" required />
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-2">
+                    <input type="number" name="insight" class="form-control form-control-lg" placeholder="Intuição" required />
+                </div>
+                <div class="col-md-2">
+                    <input type="number" name="intimidation" class="form-control form-control-lg" placeholder="Intimidação" required />
+                </div>
+                <div class="col-md-2">
+                    <input type="number" name="investigation" class="form-control form-control-lg" placeholder="Investigação" required />
+                </div>
+                <div class="col-md-2">
+                    <input type="number" name="medicine" class="form-control form-control-lg" placeholder="Medicina" required />
+                </div>
+                <div class="col-md-2">
+                    <input type="number" name="nature" class="form-control form-control-lg" placeholder="Natureza" required />
+                </div>
+                <div class="col-md-2">
+                    <input type="number" name="perception" class="form-control form-control-lg" placeholder="Percepção" required />
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-2">
+                    <input type="number" name="performance" class="form-control form-control-lg" placeholder="Performance" required />
+                </div>
+                <div class="col-md-2">
+                    <input type="number" name="persuasion" class="form-control form-control-lg" placeholder="Persuasão" required />
+                </div>
+                <div class="col-md-2">
+                    <input type="number" name="religion" class="form-control form-control-lg" placeholder="Religião" required />
+                </div>
+                <div class="col-md-2">
+                    <input type="number" name="sleight_of_hand" class="form-control form-control-lg" placeholder="Prestidigitação" required />
+                </div>
+                <div class="col-md-2">
+                    <input type="number" name="stealth" class="form-control form-control-lg" placeholder="Furtividade" required />
+                </div>
+                <div class="col-md-2">
+                    <input type="number" name="survival" class="form-control form-control-lg" placeholder="Sobrevivência" required />
+                </div>
+            </div>
+
+            <h3 class="mb-3">Notas</h3>
+            <textarea name="notes" class="form-control form-control-lg mb-4" placeholder="Notas" rows="4"></textarea>
+
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary btn-lg">Criar Personagem</button>
+                <a href="{{ url_for('index') }}" class="btn btn-secondary btn-lg ms-3">Voltar para o Índice</a>
+            </div>
+            
+        </form>
+    </div>
+
+    <!-- Link Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
